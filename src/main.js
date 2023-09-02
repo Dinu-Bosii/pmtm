@@ -1,18 +1,15 @@
 const { invoke } = window.__TAURI__.tauri;
 
-let greetInputEl;
-let greetMsgEl;
+const menuButton = document.querySelector('.menu-icon');
+const menuSidebar = document.querySelector('.menu-sidebar');
+console.log('This is a regular console.log message');
+menuButton.addEventListener('click', () => {
 
-async function greet() {
-  // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
-  greetMsgEl.textContent = await invoke("greet", { name: greetInputEl.value });
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  greetInputEl = document.querySelector("#greet-input");
-  greetMsgEl = document.querySelector("#greet-msg");
-  document.querySelector("#greet-form").addEventListener("submit", (e) => {
-    e.preventDefault();
-    greet();
-  });
+    if(menuSidebar.style.display === 'block') {
+        menuSidebar.style.display = 'none';
+    }
+    else {
+        menuSidebar.style.display = 'block';
+    }
 });
+
