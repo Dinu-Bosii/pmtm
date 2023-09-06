@@ -13,6 +13,7 @@
 
 <body>
   <div class="container">
+    <!--sidebar menu for navigation-->
     <nav>
       <div class="menu-button">
         <i class="bx bx-menu menu-icon"></i>
@@ -20,22 +21,25 @@
 
       <div class="menu-sidebar">
         <ul class="menu-items">
-          <li class="menu-item">
-            <a href="/">Home</a>
+          <li class="menu-item" id ="home-item">
+            Home
           </li>
-          <li class="menu-item">
-            <a href="/timer">Timer</a>
+          <li class="menu-item" id="timer-item">
+            <!--<a href="/timer">Timer</a>-->
+            Timer
           </li>
-          <li class="menu-item">
-            <a href="/statistics">Statistics</a>
+          <li class="menu-item" id="stats-item">
+              Statistics
           </li>
-          <li class="menu-item">
-            <a href="/settings">Settings</a>
+          <li class="menu-item", id="settings-item">
+              Settings
           </li>
         </ul>
-
       </div>
     </nav>
+    <!--Dynamically loaded content-->
+    <div class="content"></div>
+
   </div>
 </body>
 
