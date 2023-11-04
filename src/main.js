@@ -2,6 +2,8 @@ const { invoke } = window.__TAURI__.tauri;
 
 const menuButton = document.querySelector('.menu-icon');
 const menuSidebar = document.querySelector('.menu-sidebar');
+const pageContent = document.querySelector('.content');
+
 
 menuButton.addEventListener('click', () => {
 
@@ -14,6 +16,12 @@ menuButton.addEventListener('click', () => {
 });
 fetchPage('pages/home.html');
 
+pageContent.addEventListener('click', () => {
+    if (menuSidebar.style.display === 'block') {
+        menuSidebar.style.display = 'none';
+    }
+});
+
 document.getElementById('timer-item')
         .addEventListener('click', () => {
             fetchPage('/pages/timer.html');
@@ -21,7 +29,7 @@ document.getElementById('timer-item')
 
 document.getElementById('home-item')
         .addEventListener('click', () => {
-            fetchPage('/pages/home.html');
+            fetchPage('pages/home.html');
         });
 
 
@@ -35,10 +43,10 @@ function fetchPage(page) {
             return response.text();
         })
         .then((pageContent) => {
-            console.log("Fetching timer page...")
+            console.log("Fetching %s page...", page);
             document.querySelector('.content')
                 .innerHTML = pageContent;
-            console.log("Timer page obtained.");
+            console.log("%s obtained.", page);
             menuSidebar.style.display = 'none';
         })
         .catch((error) => {
@@ -46,5 +54,3 @@ function fetchPage(page) {
         });
 }
         
-
-
